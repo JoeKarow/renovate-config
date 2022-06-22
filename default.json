@@ -3,7 +3,8 @@
         "config:base",
         ":preserveSemverRanges",
         ":prNotPending",
-        ":automergeAll"
+        ":automergeAll",
+        "github>whitesource/merge-confidence:beta"
     ],
     "addLabels": [
         "dependencies"
