@@ -5,6 +5,7 @@
         ":prImmediately",
         ":rebaseStalePrs",
         ":automergeAll",
+        ":skipStatusChecks",
         ":gitSignOff",
         "github>whitesource/merge-confidence:beta"
     ],
