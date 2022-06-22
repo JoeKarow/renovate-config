@@ -4,6 +4,7 @@
         ":preserveSemverRanges",
         ":prNotPending",
         ":automergeAll",
+        ":gitSignOff",
         "github>whitesource/merge-confidence:beta"
     ],
     "addLabels": [
