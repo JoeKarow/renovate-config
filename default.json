@@ -18,6 +18,7 @@
   "packageRules": [
     {
       "matchSourceUrlPrefixes": ["https://github.com/mantinedev/mantine"],
+      "matchPackagePatterns": ["^@mantine/"],
       "groupName": "Mantine"
     }
   ]
