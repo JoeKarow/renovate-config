@@ -21,10 +21,11 @@
       groupName: 'Mantine',
     },
     {
-      "packagePatterns": ["*"],
-      "minor": {
-        "groupName": "non-major dependencies",
-        "groupSlug": "all-minor-patch"
-      }
+      packagePatterns: ['*'],
+      minor: {
+        groupName: 'non-major dependencies',
+        groupSlug: 'all-minor-patch',
+      },
+    },
   ],
 }
