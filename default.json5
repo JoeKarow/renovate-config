@@ -23,7 +23,7 @@
     {
       "packagePatterns": ["*"],
       "minor": {
-        "groupName": "Non-major dependency updates",
+        "groupName": "non-major dependencies",
         "groupSlug": "all-minor-patch"
       }
   ],
