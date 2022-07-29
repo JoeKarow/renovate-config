@@ -9,6 +9,7 @@
     ':skipStatusChecks',
     ':gitSignOff',
     'github>whitesource/merge-confidence:beta',
+    'group:allNonMajor',
   ],
   addLabels: ['dependencies'],
   reviewersFromCodeOwners: true,
@@ -17,15 +18,8 @@
   assignAutomerge: true,
   packageRules: [
     {
-      matchPackagePatterns: ['^@mantine/'],
-      groupName: 'Mantine',
-    },
-    {
-      packagePatterns: ['*'],
-      minor: {
-        groupName: 'non-major dependencies',
-        groupSlug: 'all-minor-patch',
-      },
+      matchSourceUrlPrefixes: ['https://github.com/mantinedev/mantine'],
+      groupName: 'Mantine monorepo',
     },
   ],
 }
