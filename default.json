@@ -1,25 +1,49 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base",
-    ":preserveSemverRanges",
-    ":prImmediately",
-    ":rebaseStalePrs",
-    ":automergeAll",
-    ":skipStatusChecks",
-    ":gitSignOff",
-    "github>whitesource/merge-confidence:beta",
-    "group:allNonMajor"
-  ],
-  "addLabels": ["dependencies"],
-  "reviewersFromCodeOwners": true,
-  "assigneesFromCodeOwners": true,
-  "semanticCommits": "enabled",
-  "assignAutomerge": true,
-  "packageRules": [
-    {
-      "matchSourceUrlPrefixes": ["https://github.com/mantinedev/mantine"],
-      "groupName": "Mantine monorepo"
-    }
-  ]
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"addLabels": ["dependencies"],
+	"assignAutomerge": true,
+	"assigneesFromCodeOwners": true,
+	"configMigration": true,
+	"extends": [
+		"config:base",
+		":preserveSemverRanges",
+		":prImmediately",
+		":rebaseStalePrs",
+		":gitSignOff",
+		":automergeMinor",
+		"workarounds:typesNodeVersioning"
+	],
+	"lockFileMaintenance": {
+		"addLabels": ["lockfile", "automerge"],
+		"branchTopic": "lock-file-maintenance",
+		"commitMessageAction": "Lock file maintenance",
+		"enabled": false,
+		"prBodyDefinitions": {
+			"Change": "All locks refreshed"
+		},
+		"rebaseWhen": "behind-base-branch",
+		"recreateClosed": true,
+		"schedule": ["before 5am on monday"]
+	},
+	"packageRules": [
+		{
+			"addLabels": ["major"],
+			"dependencyDashboardApproval": true,
+			"matchManagers": ["npm"],
+			"matchUpdateTypes": ["major"]
+		},
+		{
+			"matchSourceUrlPrefixes": ["https://github.com/mantinedev/mantine"]
+		},
+		{
+			"matchPackagePatterns": ["*"],
+			"minor": {
+				"addLabels": ["minor", "automerge"],
+				"groupName": "non-major dependencies",
+				"groupSlug": "all-minor-patch"
+			}
+		}
+	],
+	"reviewersFromCodeOwners": false,
+	"semanticCommits": "enabled"
 }
