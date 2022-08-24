@@ -17,7 +17,7 @@
 		"addLabels": ["lockfile", "automerge"],
 		"branchTopic": "lock-file-maintenance",
 		"commitMessageAction": "Lock file maintenance",
-		"enabled": false,
+		"enabled": true,
 		"prBodyDefinitions": {
 			"Change": "All locks refreshed"
 		},
