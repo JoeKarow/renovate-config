@@ -10,8 +10,7 @@
 		":prImmediately",
 		":rebaseStalePrs",
 		":gitSignOff",
-		":automergeMinor",
-		"workarounds:typesNodeVersioning"
+		":automergeMinor"
 	],
 	"lockFileMaintenance": {
 		"addLabels": ["lockfile", "automerge"],
@@ -27,21 +26,8 @@
 	},
 	"packageRules": [
 		{
-			"addLabels": ["major"],
-			"dependencyDashboardApproval": true,
-			"matchManagers": ["npm"],
-			"matchUpdateTypes": ["major"]
-		},
-		{
-			"matchSourceUrlPrefixes": ["https://github.com/mantinedev/mantine"]
-		},
-		{
-			"matchPackagePatterns": ["*"],
-			"minor": {
-				"addLabels": ["minor", "automerge"],
-				"groupName": "non-major dependencies",
-				"groupSlug": "all-minor-patch"
-			}
+			"groupName": "Mantine monorepo",
+			"matchPackagePrefixes": ["@mantine"]
 		}
 	],
 	"reviewersFromCodeOwners": false,
