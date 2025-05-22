@@ -1,19 +1,35 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"addLabels": ["dependencies"],
+	"addLabels": [
+		"dependencies"
+	],
 	"assignAutomerge": true,
-	"assigneesFromCodeOwners": true,
 	"configMigration": true,
 	"extends": [
-		"config:base",
-		":preserveSemverRanges",
+		":approveMajorUpdates",
+		":dependencyDashboard",
+		":enableVulnerabilityAlerts",
+		":gitSignOff",
+		":ignoreModulesAndTests",
+		":pinAllExceptPeerDependencies",
+		":prConcurrentLimit10",
 		":prImmediately",
 		":rebaseStalePrs",
-		":gitSignOff",
-		":automergeMinor"
+		":renovatePrefix",
+		":semanticPrefixFixDepsChoreOthers",
+		"group:monorepos",
+		"group:recommended",
+		"helpers:disableTypesNodeMajor",
+		"replacements:all",
+		"security:openssf-scorecard",
+		"workarounds:all"
 	],
+	"ignoreScripts": true,
 	"lockFileMaintenance": {
-		"addLabels": ["lockfile", "automerge"],
+		"addLabels": [
+			"lockfile",
+			"automerge"
+		],
 		"branchTopic": "lock-file-maintenance",
 		"commitMessageAction": "Lock file maintenance",
 		"enabled": true,
@@ -22,14 +38,36 @@
 		},
 		"rebaseWhen": "behind-base-branch",
 		"recreateClosed": true,
-		"schedule": ["before 5am on monday"]
+		"schedule": [
+			"before 5am on monday"
+		]
 	},
+	"npmrc": "ignore-scripts=true\nignore-dep-scripts=true",
+	"npmrcMerge": true,
+	"osvVulnerabilityAlerts": true,
 	"packageRules": [
 		{
-			"groupName": "Mantine monorepo",
-			"matchPackagePrefixes": ["@mantine"]
+			"groupName": "all non-major dependencies",
+			"groupSlug": "all-minor-patch",
+			"matchPackagePatterns": [
+				"*",
+				"@types/react"
+			],
+			"matchUpdateTypes": [
+				"minor",
+				"patch"
+			]
 		}
 	],
 	"reviewersFromCodeOwners": false,
-	"semanticCommits": "enabled"
+	"rollbackPrs": true,
+	"semanticCommits": "enabled",
+	"transitiveRemediation": true,
+	"updateInternalDeps": true,
+	"vulnerabilityAlerts": {
+		"enabled": true,
+		"labels": [
+			"security"
+		]
+	}
 }
