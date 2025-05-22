@@ -4,6 +4,8 @@
 		"dependencies"
 	],
 	"assignAutomerge": true,
+	"automergeStrategy": "merge-commit",
+	"automergeType": "pr",
 	"configMigration": true,
 	"extends": [
 		":approveMajorUpdates",
