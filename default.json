@@ -4,6 +4,7 @@
 		"dependencies"
 	],
 	"assignAutomerge": true,
+	"automerge": true,
 	"automergeStrategy": "merge-commit",
 	"automergeType": "pr",
 	"configMigration": true,
